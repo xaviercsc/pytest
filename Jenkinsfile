@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the repository
+                git 'https://github.com/xaviercsc/pytest.git'
+            }
+        }
+
+        stage('Install Requirements') {
+            steps {
+                // Install Python requirements
+                sh 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Run Python Script') {
+            steps {
+                // Run the Python script and capture the output
+                script {
+                    def output = sh(script: 'python3 your_script.py', returnStdout: true).trim()
+                    echo "Python Script Output:\n${output}"
+                }
+            }
+        }
+    }
+}
