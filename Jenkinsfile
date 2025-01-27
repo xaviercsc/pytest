@@ -12,7 +12,7 @@ pipeline {
         stage('Install Requirements') {
             steps {
                 // Install Python requirements
-                sh 'python -m pip install -r requirements.txt'
+                //sh 'python -m pip install -r requirements.txt'
             }
         }
 
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // Run the Python script and capture the output
                 script {
-                    def output = sh(script: 'python3 your_script.py', returnStdout: true).trim()
+                    def output = sh(script: 'python3 testrun.py', returnStdout: true).trim()
                     echo "Python Script Output:\n${output}"
                 }
             }
