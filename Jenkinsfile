@@ -13,6 +13,7 @@ pipeline {
             steps {
                 // Install Python requirements
                 //sh 'python -m pip install -r requirements.txt'
+                echo "Python Installed"
             }
         }
 
